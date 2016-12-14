@@ -1,0 +1,25 @@
+
+[Importer requirements]
+
+WP
+-------------------------
+>= v4.0
+    why: Importer uses attachment_url_to_postid function to retrieve the ID of an attachment so we won't import the
+            image if it already exists.
+    see: https://developer.wordpress.org/reference/functions/attachment_url_to_postid/
+    see: https://github.com/hogash/kallyas/issues/1489, specifically:
+            "Trebuie verificat daca un post/imagine/meniu/etc a fost deja importat inainte de a-l importa din nou.
+            In momentul de fata daca impotri de mai multe ori acelasi demo iti baga aceasi imagine in media library de mai multe ori."
+
+PHP.ini
+-------------------------
+memory_limit = 64M WP Single, 128M WPMU
+max_input_vars = 3000 // Optional - sometimes big theme options (Unlimited Subheaders) or big menus are not saved if set to 1000
+upload_max_filesize = 50M - the minimum size required by RevSlider
+post_max_size = 50M - the minimum size required by RevSlider
+
+
+
+
+
+
